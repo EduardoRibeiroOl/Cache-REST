@@ -2,102 +2,112 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-gray-50 min-h-screen">
+      <div id="app">
+        <nav className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex">
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                  <a href="#home" className="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                  <a href="#about" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
+                  <a href="#contact" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          {/* Hero Section */}
+          <section id="home" className="component bg-white overflow-hidden">
+            <div className="px-4 py-16 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                  Welcome to Our Next.js App
+                </h1>
+                <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-500">
+                  A modern, performant web application built with Next.js
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-8">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Feature 1 */}
+              <div className="component bg-white">
+                <div className="px-4 py-5 sm:p-6">
+                  <img className="h-12 w-12 mb-4" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c76212c-a886-4617-b732-a35e7b79d763.png" alt="Lightning bolt icon representing fast performance" />
+                  <h3 className="text-lg leading-6 font-medium text-gray-900">Fast Performance</h3>
+                  <div className="mt-2 text-sm text-gray-600">
+                    <p>Optimized for speed with automatic code splitting, optimized images, and server-side rendering.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="component bg-white">
+                <div className="px-4 py-5 sm:p-6">
+                  <img className="h-12 w-12 mb-4" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/badf85ac-893a-4108-bd40-28beacc02d3d.png" alt="Mobile devices showing responsive design" />
+                  <h3 className="text-lg leading-6 font-medium text-gray-900">Responsive Design</h3>
+                  <div className="mt-2 text-sm text-gray-600">
+                    <p>Looks great on any device, from desktop to mobile, with Tailwind CSS responsive utilities.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="component bg-white">
+                <div className="px-4 py-5 sm:p-6">
+                  <img className="h-12 w-12 mb-4" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d0b32519-c5d6-46f9-9ebd-7815b1b36f03.png" alt="Developer tools and code editor showing JSX syntax" />
+                  <h3 className="text-lg leading-6 font-medium text-gray-900">Developer Friendly</h3>
+                  <div className="mt-2 text-sm text-gray-600">
+                    <p>Includes TypeScript support, fast refresh, and an intuitive page-based routing system.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="about" className="component bg-white mt-8">
+            <div className="px-4 py-5 sm:p-6">
+              <h2 className="text-2xl font-bold text-gray-900">About</h2>
+              <div className="mt-4 text-gray-600">
+                <p>This is a demonstration of how a Next.js application can be structured in a single HTML file, simulating components with JavaScript and CSS.</p>
+                <p className="mt-2">In a real Next.js project, you would have separate component files, pages, and proper routing.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" className="component bg-white mt-8">
+            <div className="px-4 py-5 sm:p-6">
+              <h2 className="text-2xl font-bold text-gray-900">Contact</h2>
+              <form className="mt-4 space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                  <input type="text" id="name" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                  <input type="email" id="email" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                  <textarea id="message" rows="4" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">Submit</button>
+              </form>
+            </div>
+          </section>
+        </main>
+
+        <footer className="bg-white shadow-inner mt-8">
+          <div className="max-w-7xl mx-auto py-6 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <p className="text-center text-base text-gray-500">
+              © 2023 Next.js App Demo. All rights reserved.
+            </p>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
