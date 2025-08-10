@@ -14,9 +14,14 @@ export const POST = async (req) => {
         await db.collection("user").createIndex({ email: 1 }, { unique: true });
         console.log("Índice único criado para email.");
 
-        const {email, password} = await req.json()
-        
-        if(!email){
+        const {name, email, password} = await req.json()
+
+        if(!name){
+            return Response.json(
+                { erro: "nome não preenchido"},
+                { status: 400}
+            )
+        } else if(!email){
             return Response.json(
                 { erro: "email não preenchido"},
                 { status: 400}
@@ -27,6 +32,7 @@ export const POST = async (req) => {
                 { status: 400}
             )
         }
+
         
     const existuser = await db.collection("user").findOne({email}) 
     if (existuser){
@@ -39,10 +45,18 @@ export const POST = async (req) => {
     const saltRounds = 10
     const hash = await bcrypt.hash(password, saltRounds)
     
-    await db.collection("user").insertOne({email, 
-        password: hash,
+    await db.collection("user").insertOne({
+        name,
+        email, 
+        passwordHash: hash,
         createdAt: new Date()
     })
+
+    return Response.json(
+        { mensagem: "Dados salvos com sucesso!" },
+        { status: 201 } // ← 201 para recursos criados
+    );
+
     } catch(error){
         console.error("Erro:", error);
         return Response.json(
