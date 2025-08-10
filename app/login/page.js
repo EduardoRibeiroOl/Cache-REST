@@ -1,5 +1,35 @@
+"use client"
+import React, { useState, useEffect } from "react"
+
 export default async function login() {
-    return(
+
+  const [email, setEmail ] = useState()
+  const [password, setPassword ] = useState()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try{
+      const response = await fetch("api/loginuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        }, body: JSON.stringify({email, password}),
+      })  
+
+      if (response.ok){
+        setEmail('')
+        setPassword('')
+        alert("formulario enviado")
+      }
+
+    } catch (erro) {
+      console.error("deu erro ao enviar o formulário", erro)
+      alert("envio do formulário de errado")
+    }
+  }
+
+  return(
               <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                   <div className="flex justify-center">
@@ -22,7 +52,8 @@ export default async function login() {
           
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                   <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <form className="space-y-6" action="#" method="POST">
+                    <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
+                      
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                           Email
@@ -78,7 +109,7 @@ export default async function login() {
                       <div>
                         <button
                           type="submit"
-                          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"                            
                         >
                           Entrar
                         </button>
@@ -109,6 +140,9 @@ export default async function login() {
                             </svg>
                           </a>
                         </div>
+
+
+                        {/*tenho que adicionar um botão para avaliação dos dados*/}
           
                         <div>
                           <a

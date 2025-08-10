@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
             <div className="px-4 py-16 sm:px-6 lg:px-8">
               <div className="text-center">
                 <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                  Welcome to Our Next.js App
+                  Welcome To My Next Page
                 </h1>
                 <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-500">
                   A modern, performant web application built with Next.js
@@ -77,6 +78,16 @@ export default function Home() {
               </div>
             </div>
           </section>
+
+
+          {/*template to fix in the next "coding" */}
+          <Link 
+          href="login"
+          className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-m"
+          >Click here to login in my application</Link>
+
+
+
 
           <section id="contact" className="component bg-white mt-8">
             <div className="px-4 py-5 sm:p-6">
