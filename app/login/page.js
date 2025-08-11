@@ -1,10 +1,10 @@
 "use client"
 import React, { useState, useEffect } from "react"
 
-export default async function login() {
+export default function login() {
 
-  const [email, setEmail ] = useState()
-  const [password, setPassword ] = useState()
+  const [frontemail, setEmail ] = useState("")
+  const [frontpassword, setPassword ] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -14,7 +14,7 @@ export default async function login() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        }, body: JSON.stringify({email, password}),
+        }, body: JSON.stringify({frontemail, frontpassword}),
       })  
 
       if (response.ok){
@@ -62,6 +62,8 @@ export default async function login() {
                           <input
                             id="email"
                             name="email"
+                            value={frontemail}
+                            onChange={(e) => setEmail(e.target.value)}
                             type="email"
                             autoComplete="email"
                             required
@@ -78,6 +80,8 @@ export default async function login() {
                           <input
                             id="password"
                             name="password"
+                            value={frontpassword}
+                            onChange={(e) => setPassword(e.target.value)}
                             type="password"
                             autoComplete="current-password"
                             required

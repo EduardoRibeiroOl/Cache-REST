@@ -11,6 +11,7 @@ export default function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    /*Verificação de envio dos dados*/ 
     const dadosParaEnviar = { name, email, password }; // Substitua pelas suas variáveis
     console.log("Dados sendo enviados:", dadosParaEnviar); // ← Verifique aqui
     
@@ -23,7 +24,7 @@ export default function RegisterPage() {
          body: JSON.stringify({name, email, password}),
       })
 
-      if(resposta.ok){
+      if(resposta.status === 201){
         alert("Usuário salvo com sucesso!")
       }
     }catch(erro){
