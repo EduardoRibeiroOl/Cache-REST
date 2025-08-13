@@ -1,16 +1,35 @@
 "use client"
 import React, { useState, useEffect } from "react"
+import { useRouter } from "next/navigation";
 
 export default function login() {
 
   const [frontemail, setEmail ] = useState("")
   const [frontpassword, setPassword ] = useState("")
 
+
+  async function tokenvalidate () {
+    try{
+      const Mycookie = await fetch ("/api/token", { credentials: "include" })
+      if (Mycookie.status == 200){
+        router.push("/main")
+      }
+      else{
+        console.error("token não existe ou não cadastrado")
+        alert("token não existe ou não cadastrado")  
+      }
+
+    } catch(erro){
+      console.error("erro ao tentar ler token")
+      alert("erro ao tentar ler token")
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try{
-      const response = await fetch("api/loginuser", {
+      const response = await fetch("/api/loginuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,6 +40,8 @@ export default function login() {
         setEmail('')
         setPassword('')
         alert("formulario enviado")
+
+        tokenvalidate()
       }
 
     } catch (erro) {
@@ -28,6 +49,7 @@ export default function login() {
       alert("envio do formulário de errado")
     }
   }
+
 
   return(
               <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
