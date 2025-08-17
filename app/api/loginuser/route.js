@@ -46,8 +46,8 @@ export const POST = async (req) => {
             { expiresIn: "1d" }
           );
       
-          const cookieStore = cookies();
-          cookieStore.set("token", token, {
+          const cookieStore = await cookies();
+          await cookieStore.set("token", token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             maxAge: 60 * 60 * 24 * 7,

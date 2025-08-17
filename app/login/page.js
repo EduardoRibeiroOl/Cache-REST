@@ -4,12 +4,13 @@ import { useRouter } from "next/navigation";
 
 export default function login() {
 
+  const router = useRouter()
   const [frontemail, setEmail ] = useState("")
   const [frontpassword, setPassword ] = useState("")
 
 
   async function tokenvalidate () {
-    try{
+    
       const Mycookie = await fetch ("/api/token", { credentials: "include" })
       if (Mycookie.status == 200){
         router.push("/main")
@@ -19,11 +20,7 @@ export default function login() {
         alert("token não existe ou não cadastrado")  
       }
 
-    } catch(erro){
-      console.error("erro ao tentar ler token")
-      alert("erro ao tentar ler token")
-    }
-  }
+    } 
 
   const handleSubmit = async (e) => {
     e.preventDefault()

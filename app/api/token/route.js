@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 const JWT_SECRET = process.env.JWT_SECRET || "chave_secreta_bem_grande";
 
 export async function GET() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
   if (!token) {
