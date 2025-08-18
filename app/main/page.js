@@ -1,10 +1,25 @@
 "use client"
 import { useState } from 'react';
 import Head from 'next/head';
+import { Cookie } from 'next/font/google';
+import { useRouter } from 'next/navigation';
 
 export default function FinancialDashboard() {
+  const router = useRouter() 
+
   const [activeTab, setActiveTab] = useState('portfolio');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+
+  /*  middleware de autenticação  */ 
+  async function validateroute (){
+    const Mycookie = await fetch('/api/token', { credentials: "include" })
+    if (Mycookie.status != 200){
+      router.push('/login')
+    }
+  }
+  validateroute() 
+
 
   // Dados mockados
   const portfolio = [
