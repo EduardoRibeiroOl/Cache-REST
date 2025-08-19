@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 
+
 export default function FinancialDashboard() {
   const router = useRouter() 
 
@@ -18,9 +19,21 @@ export default function FinancialDashboard() {
           router.push('/login')
         }
       }
-      
+
       validateroute() 
   })
+
+  
+    async function tokentestemenu () {
+      const receba = fetch('/api/me')
+
+      if(!receba){
+        console.log("deu n pai")
+        alert("deu n pai")
+      }
+    }
+
+    tokentestemenu ()
 
   // Dados mockados
   const portfolio = [
