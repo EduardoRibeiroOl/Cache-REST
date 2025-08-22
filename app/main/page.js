@@ -20,20 +20,22 @@ export default function FinancialDashboard() {
         }
       }
 
+      async function getuserinfon() {
+        const Myuser = await fetch('/api/me',  { credentials: "include" })
+        if(Myuser.ok){
+          console.log(await Myuser.json())
+
+        } else{  
+          console.log("erro em receber cookie")
+          alert("erro em receber cookie") 
+        }
+      }
+
+      getuserinfon()
       validateroute() 
   })
 
   
-    async function tokentestemenu () {
-      const receba = fetch('/api/me')
-
-      if(!receba){
-        console.log("deu n pai")
-        alert("deu n pai")
-      }
-    }
-
-    tokentestemenu ()
 
   // Dados mockados
   const portfolio = [

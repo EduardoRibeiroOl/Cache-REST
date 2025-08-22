@@ -31,6 +31,7 @@ export default function login() {
         headers: {
           "Content-Type": "application/json",
         }, body: JSON.stringify({frontemail, frontpassword}),
+        
       })  
 
       if (response.ok){
